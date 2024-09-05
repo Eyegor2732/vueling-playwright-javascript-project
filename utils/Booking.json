@@ -1,0 +1,21 @@
+[
+	
+	{
+		"originSearch": "alm",
+		"originResult": "Almeria",
+		"destinationSearch": "par",
+		"destinationResult": "ORY",
+		"adultPassengers": "1",
+		"name": "Eyegor",
+		"surname": "Smith",
+		"country": "Russia",
+		"phone": "1234567890",
+		"email": "stam@stam.com",
+		"cardNumber": "44867010002624271",
+		"cardType": "Visa",
+		"cardHolder": "Eyegor Smith",
+		"expiry": "1025",
+		"cvv": "123"	
+	}
+	
+]
