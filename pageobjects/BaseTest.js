@@ -1,3 +1,5 @@
+"use strict";
+
 class BaseTest {
 
     constructor(page, url) {
@@ -12,7 +14,7 @@ class BaseTest {
     async goto() {
         await this.page.goto(this.url);
     }
-
+     
 }
 
 module.exports = {BaseTest};

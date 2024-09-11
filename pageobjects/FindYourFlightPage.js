@@ -1,3 +1,5 @@
+"use strict";
+
 class FindYourFlightPage {
     
     constructor(page) {

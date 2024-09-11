@@ -1,3 +1,5 @@
+"use strict";
+
 const {HomePage} = require('./HomePage');
 const {FindYourFlightPage} = require('./FindYourFlightPage')
 const {SchedulePage} = require('./SchedulePage')

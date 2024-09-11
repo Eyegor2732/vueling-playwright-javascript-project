@@ -1,3 +1,5 @@
+"use strict";
+
 class BagsServicePage {
     
     constructor(page) {

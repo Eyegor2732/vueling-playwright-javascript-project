@@ -1,3 +1,5 @@
+"use strict";
+
 class PaymentPage {
     
     constructor(page) {
@@ -36,6 +38,10 @@ class PaymentPage {
         };
         await this.conditionsCheckbox.click();
         await this.submitpaymentButton.click();
+    }
+
+    async closePage(){
+        await this.page.close();
     }
 }
 

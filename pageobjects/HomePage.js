@@ -1,3 +1,5 @@
+"use strict";
+
 const { BaseTest } = require("./BaseTest");
 
 class HomePage  extends BaseTest{

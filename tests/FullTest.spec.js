@@ -1,3 +1,5 @@
+"use strict";
+
 const { test, expect} = require('@playwright/test');
 const {PageObjectsManager} = require('../pageobjects/PageObjectsManager');
 const dataSet = JSON.parse(JSON.stringify(require('../utils/Booking.json')));
@@ -46,6 +48,8 @@ for (const data of dataSet){
         expect(actualPrice).toEqual(finalPrice);
 
         await paymentPage.enterCCDataPay(data.cardNumber, data.cardHolder, data.expiry, data.cvv);
+
+        await paymentPage.closePage();
     
     });
 }
