@@ -23,11 +23,11 @@ for (const data of dataSet){
         await findyourflightPage.enterSearchData(data.originSearch, data.originResult, data.destinationSearch, data.destinationResult, data.adultPassengers);
 
         // Schedule Page - https://tickets.vueling.com/ScheduleSelectNew.aspx...
-        const scheduleTotalAmount = await schedulePage.scheduleFlights();
+        const scheduleTotalAmount = parseFloat(await schedulePage.scheduleFlights());
 
         // Assertions - total amount before adding servces on passengers page is equql to total amount on schedule page
-        const actualBaseOntopPrice = await schedulePage.getPassengersTotalAmount();
-        expect(actualBaseOntopPrice).toEqual(scheduleTotalAmount);
+        const actualBaseOntopPrice = parseFloat(await schedulePage.getPassengersTotalAmount());
+        expect(actualBaseOntopPrice.toFixed(2)).toEqual(scheduleTotalAmount.toFixed(2));
 
         // Passengers Information Page - https://tickets.vueling.com/PassengersInformation.aspx
         await passengersPage.enterPassengersInfo(data.name, data.surname, data.country, data.phone, data.email);
@@ -45,7 +45,7 @@ for (const data of dataSet){
         //Assertions actual total price in Credit Card payment is equal to final price
         const finalPrice = (actualBaseOntopPrice + seatsServiceCost);
         const actualPrice = await paymentPage.getActualPrice();
-        expect(actualPrice).toEqual(finalPrice);
+        expect(actualPrice.toFixed(2)).toEqual(finalPrice.toFixed(2));
 
         await paymentPage.enterCCDataPay(data.cardNumber, data.cardHolder, data.expiry, data.cvv);
 

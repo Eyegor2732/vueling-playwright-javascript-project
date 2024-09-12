@@ -2,17 +2,16 @@
 
 class BaseTest {
 
-    constructor(page, url) {
+    constructor(page) {
         this.page = page;
-        this.url = url;
     }
 
     async setViewport(w, h) {
         await this.page.setViewportSize({width:w, height: h});
     }
 
-    async goto() {
-        await this.page.goto(this.url);
+    async goto(url) {
+        await this.page.goto(url);
     }
      
 }
