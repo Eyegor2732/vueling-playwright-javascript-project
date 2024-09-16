@@ -11,9 +11,8 @@ const {PaymentPage} = require('./PaymentPage')
 
 class PageObjectsManager {
 
-    constructor(page, url) {
+    constructor(page) {
         this.page = page;
-        this.url = url;
         this.homePage = new HomePage(this.page, this.url);
         this.findyourflightPage = new FindYourFlightPage(this.page);
         this.schedulePage = new SchedulePage(this.page);

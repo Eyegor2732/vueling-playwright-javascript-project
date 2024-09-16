@@ -4,6 +4,14 @@ const { test, expect} = require('@playwright/test');
 const {PageObjectsManager} = require('../pageobjects/PageObjectsManager');
 const dataSet = JSON.parse(JSON.stringify(require('../utils/Booking.json')));
 
+test.afterEach('Tear down each', async ({page}) => {
+    if(!page.isClosed()) await page.close();
+}); 
+
+test.afterAll('Tear down all', async ({browser}) => {
+    if(browser.isConnected()) await browser.close(); 
+}); 
+
 for (const data of dataSet){
     test('Ticket Booking end-to-end', async ({page}) => {
         const poManager = new PageObjectsManager(page)
@@ -37,7 +45,7 @@ for (const data of dataSet){
     
         // Bags Service Page
         await bagsservicePage.navigateToServicesPage();
-
+        
         //  Services Page
         await servicesPage.navigateToPaymentPage();
 
@@ -46,10 +54,7 @@ for (const data of dataSet){
         const finalPrice = (actualBaseOntopPrice + seatsServiceCost);
         const actualPrice = await paymentPage.getActualPrice();
         expect(actualPrice.toFixed(2)).toEqual(finalPrice.toFixed(2));
-
+        
         await paymentPage.enterCCDataPay(data.cardNumber, data.cardHolder, data.expiry, data.cvv);
-
-        await paymentPage.closePage();
-    
     });
 }

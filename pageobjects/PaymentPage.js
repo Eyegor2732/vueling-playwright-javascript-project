@@ -40,9 +40,6 @@ class PaymentPage {
         await this.submitpaymentButton.click();
     }
 
-    async closePage(){
-        await this.page.close();
-    }
 }
 
 module.exports = {PaymentPage};

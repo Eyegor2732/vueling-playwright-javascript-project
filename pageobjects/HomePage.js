@@ -14,7 +14,7 @@ class HomePage  extends BaseTest{
     
     async launchHomeGotoBooknowPage() {
         await this.setViewport(1700, 1200);
-        await this.goto('https://www.vueling.com/en');
+        await this.goto('/');
         await this.acceptButton.click();
         await this.booknowButton.click();
     }

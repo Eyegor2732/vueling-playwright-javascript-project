@@ -22,7 +22,7 @@ class SchedulePage {
         await this.inboudflightButton.first().click();;
         await this.flightlightbundleButton.click();
         const totalAmount = parseFloat(await this.totalInteger.textContent() + '.' + await this.totalDecimal.textContent());
-        this.continueButton.click();
+        await this.continueButton.click();
         return totalAmount;
     }
 }
