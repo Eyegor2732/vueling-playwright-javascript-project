@@ -4,13 +4,13 @@ import { test, expect} from '@playwright/test';
 import {PageObjectsManager} from '../pageobjects/PageObjectsManager';
 const dataSet = JSON.parse(JSON.stringify(require('../utils/Booking.json')));
 
-test.afterEach('Tear down each', async ({page}) => {
-    if(!page.isClosed()) await page.close();
-}); 
+// test.afterEach('Tear down each', async ({page}) => {
+//     if(!page.isClosed()) await page.close();
+// }); 
 
-test.afterAll('Tear down all', async ({browser}) => {
-    if(browser.isConnected()) await browser.close(); 
-}); 
+// test.afterAll('Tear down all', async ({browser}) => {
+//     if(browser.isConnected()) await browser.close(); 
+// }); 
 
 for (const data of dataSet){
     test('Ticket Booking end-to-end', async ({page}) => {
@@ -56,5 +56,6 @@ for (const data of dataSet){
         expect(actualPrice.toFixed(2)).toEqual(finalPrice.toFixed(2));
         
         await paymentPage.enterCCDataPay(data.cardNumber, data.cardHolder, data.expiry, data.cvv);
+        page.close();
     });
 }
