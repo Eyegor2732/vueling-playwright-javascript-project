@@ -20,7 +20,7 @@ export class SeatservicePage {
         let servicesSum = 0;
         for (let i = 0; i < connectionsCount; i++){
             for (let j=0; j<assignableSeatsCount; j++) {
-                const assignableSeat = this.assignableSeats.nth(j);
+                const assignableSeat = await this.assignableSeats.nth(j);
                 if (await assignableSeat.isVisible()) {
                     servicesSum = servicesSum + parseFloat((await assignableSeat.textContent()).replace('+', ''));
                     await assignableSeat.click();
