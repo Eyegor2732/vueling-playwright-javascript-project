@@ -1,6 +1,6 @@
 "use strict";
 
-class PaymentPage {
+export class PaymentPage {
     
     constructor(page) {
         this.page = page;
@@ -41,5 +41,3 @@ class PaymentPage {
     }
 
 }
-
-module.exports = {PaymentPage};

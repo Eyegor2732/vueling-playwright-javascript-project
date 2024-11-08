@@ -1,7 +1,7 @@
 "use strict";
 
-const { test, expect} = require('@playwright/test');
-const {PageObjectsManager} = require('../pageobjects/PageObjectsManager');
+import { test, expect} from '@playwright/test';
+import {PageObjectsManager} from '../pageobjects/PageObjectsManager';
 const dataSet = JSON.parse(JSON.stringify(require('../utils/Booking.json')));
 
 test.afterEach('Tear down each', async ({page}) => {
@@ -23,10 +23,10 @@ for (const data of dataSet){
         const bagsservicePage = poManager.getBagsservicePagePage();
         const servicesPage = poManager.getServicesPage();
         const paymentPage = poManager.getPaymentPage();
-
+        
         // Launching the Home page
         await homePage.launchHomeGotoBooknowPage();
-
+        
         // Book Your Flight Page - https://www.vueling.com/en/book-your-flight/find-your-flight
         await findyourflightPage.enterSearchData(data.originSearch, data.originResult, data.destinationSearch, data.destinationResult, data.adultPassengers);
 
@@ -36,7 +36,7 @@ for (const data of dataSet){
         // Assertions - total amount before adding servces on passengers page is equql to total amount on schedule page
         const actualBaseOntopPrice = parseFloat(await schedulePage.getPassengersTotalAmount());
         expect(actualBaseOntopPrice.toFixed(2)).toEqual(scheduleTotalAmount.toFixed(2));
-
+        
         // Passengers Information Page - https://tickets.vueling.com/PassengersInformation.aspx
         await passengersPage.enterPassengersInfo(data.name, data.surname, data.country, data.phone, data.email);
 

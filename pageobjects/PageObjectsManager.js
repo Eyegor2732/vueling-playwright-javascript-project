@@ -1,15 +1,15 @@
 "use strict";
 
-const {HomePage} = require('./HomePage');
-const {FindYourFlightPage} = require('./FindYourFlightPage')
-const {SchedulePage} = require('./SchedulePage')
-const {PassengersPage} = require('./PassengersPage')
-const {SeatservicePage} = require('./SeatservicePage')
-const {BagsServicePage} = require('./BagsServicePage')
-const {ServicesPage} = require('./ServicesPage')
-const {PaymentPage} = require('./PaymentPage')
+import {HomePage} from './HomePage';
+import {FindYourFlightPage} from'./FindYourFlightPage';
+import {SchedulePage} from'./SchedulePage';
+import {PassengersPage} from'./PassengersPage';
+import {SeatservicePage} from './SeatservicePage';
+import {BagsServicePage} from'./BagsServicePage';
+import {ServicesPage} from './ServicesPage';
+import {PaymentPage} from './PaymentPage';
 
-class PageObjectsManager {
+export class PageObjectsManager {
 
     constructor(page) {
         this.page = page;
@@ -55,5 +55,3 @@ class PageObjectsManager {
     }
 
 }
-
-module.exports = {PageObjectsManager};

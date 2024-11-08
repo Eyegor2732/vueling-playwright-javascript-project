@@ -1,6 +1,6 @@
 "use strict";
 
-class BagsServicePage {
+export class BagsServicePage {
     
     constructor(page) {
         this.page = page;
@@ -11,5 +11,3 @@ class BagsServicePage {
         await this.continueButton.click();
     }
 }
-
-module.exports = {BagsServicePage};

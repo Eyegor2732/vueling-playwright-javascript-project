@@ -1,6 +1,6 @@
 "use strict";
 
-class SchedulePage {
+export class SchedulePage {
     
     constructor(page) {
         this.page = page;
@@ -26,5 +26,3 @@ class SchedulePage {
         return totalAmount;
     }
 }
-
-module.exports = {SchedulePage};

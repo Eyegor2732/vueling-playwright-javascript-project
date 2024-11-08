@@ -19,14 +19,19 @@ module.exports = defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 1 : 1,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['json', {  outputFile: 'test-results/test-results.html' }],
+    ['html', {  outputFolder: 'test-results' }],
     ['json', {  outputFile: 'test-results/test-results.json' }],
+    
     process.env.CI ? ['dot'] : ['list']
   ],
   timeout: 6*30000,
+  expect: 
+  {
+    timeout: 10000
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -35,6 +40,8 @@ module.exports = defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     // trace: 'on-first-retry',
     trace: 'retain-on-failure',
+    video: 'on-first-retry',
+    headless: true,
   },
 
   /* Configure projects for major browsers */
@@ -51,7 +58,9 @@ module.exports = defineConfig({
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari']},
+      use: { ...devices['Desktop Safari'],
+        viewport: {width:1700, height: 1200}
+      },
     },
 
     /* Test against mobile viewports. */

@@ -1,6 +1,6 @@
 "use strict";
 
-class SeatservicePage {
+export class SeatservicePage {
     
     constructor(page) {
         this.page = page;
@@ -36,5 +36,3 @@ class SeatservicePage {
         return servicesSum;
     }
 }
-
-module.exports = {SeatservicePage};

@@ -1,6 +1,6 @@
 "use strict";
 
-class FindYourFlightPage {
+export class FindYourFlightPage {
     
     constructor(page) {
         this.page = page;
@@ -43,5 +43,3 @@ class FindYourFlightPage {
     }
  
 }
-
-module.exports = {FindYourFlightPage};

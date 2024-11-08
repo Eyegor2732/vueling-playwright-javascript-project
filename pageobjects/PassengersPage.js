@@ -1,6 +1,6 @@
 "use strict";
 
-class PassengersPage {
+export class PassengersPage {
     
     constructor(page) {
         this.page = page;
@@ -25,5 +25,3 @@ class PassengersPage {
         await this.continueButton.click();
     }
 }
-
-module.exports = {PassengersPage};

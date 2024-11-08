@@ -1,8 +1,8 @@
 "use strict";
 
-const { BaseTest } = require("./BaseTest");
+import { BaseTest } from './BaseTest';
 
-class HomePage  extends BaseTest{
+export class HomePage  extends BaseTest{
     
     constructor(page) {
         super(page);
@@ -13,11 +13,8 @@ class HomePage  extends BaseTest{
     }
     
     async launchHomeGotoBooknowPage() {
-        await this.setViewport(1700, 1200);
         await this.goto('/');
         await this.acceptButton.click();
         await this.booknowButton.click();
     }
 }
-
-module.exports = {HomePage};

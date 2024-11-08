@@ -1,13 +1,9 @@
 "use strict";
 
-class BaseTest {
+export class BaseTest {
 
     constructor(page) {
         this.page = page;
-    }
-
-    async setViewport(w, h) {
-        await this.page.setViewportSize({width:w, height: h});
     }
 
     async goto(url) {
@@ -15,5 +11,3 @@ class BaseTest {
     }
      
 }
-
-module.exports = {BaseTest};
